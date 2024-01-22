@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      form {
+        width: 300px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"], input[type="email"], input[type="password"], select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007BFF;
+        color: #fff;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+    <script>
+      function handleSubmit() {
+        var nama = document.getElementsByName('nama')[0].value;
+        var email = document.getElementsByName('email')[0].value;
+        var password = document.getElementsByName('Pass')[0].value;
+        var member_jeketi = document.getElementsByName('member-jeketi');
+        var member_jeketi_value;
+        for (var i=0; i<member_jeketi.length; i++) {
+          if (member_jeketi[i].checked) {
+            member_jeketi_value = member_jeketi[i].value;
+          }
+        }
+        var top_up = document.getElementsByName('top_up')[0].value;
+        var pesan = document.getElementsByTagName('textarea')[0].value;
+
+        alert(
+          'Nama: ' + nama + '\n' +
+          'E-Mail: ' + email + '\n' +
+          'Password: ' + password + '\n' +
+          'Pilih Oshi: ' + member_jeketi_value + '\n' +
+          'Top-Up Point: ' + top_up + '\n' +
+          'Pesan: ' + pesan
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="event.preventDefault(); handleSubmit();">
+      <h1>Sign-up BKT48</h1>
+      Nama : <input type="text" name="nama" /><br />
+      E-Mail :<input type="email" name="email" /><br />
+      password :<input type="password" name="Pass" /><br />
+      pilih Oshi :<br />
+	    <input type="radio" name="member-jeketi" value="Freya" />Yori <br />
+      <input type="radio" name="member-jeketi" value="Flora" />Ara <br />
+      <input type="radio" name="member-jeketi" value="Shani" />Chika <br />
+	  Top-Up Point :<br /><select name="top_up">
+		<option>~~Pilih~~</option>
+		<option>Rp. 10.000</option>
+		<option>Rp. 25.000</option>
+		<option>Rp. 50.000</option>
+		<option>Rp. 100.000</option>
+		<option>Rp. 1.000.000</option>
+	</select>
+	<br />
+	Pesan :<br />
+	<textarea></textarea>
+	<br />
+	<input type="submit" value="proses">
+    </form>
+  </body>
+</html>
